@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhruv Vaishnav - Portfolio</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-bg"></div>
+      <div class="hero-container">
+        <h1 class="hero-greeting">Hi, I'm Dhruv Vaishnav</h1>
+        <p class="hero-subtitle">Web Developer | Tech Explorer | Creator</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary" aria-label="View my projects">View Projects</a>
+          <a href="#contact" class="btn btn-secondary" aria-label="Contact me">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="about-container">
+        <img class="about-img" src="https://via.placeholder.com/220x220.png?text=Profile+Photo"
+          alt="Dhruv Vaishnav profile photo" aria-label="Profile photo of Dhruv Vaishnav" tabindex="0" />
+        <div class="about-content fade-up">
+          <h2 class="about-title">About Me</h2>
+          <p class="about-text reveal">
+            I'm Dhruv Vaishnav, a passionate web developer dedicated to building beautiful and functional digital experiences. With a love for learning and exploring new technologies, I strive to create impactful solutions that blend creativity and code.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+      <h2 class="section-title">Projects</h2>
+      <!-- Optional: Category filter/tags for future scalability -->
+      <div class="projects-filters" aria-label="Project categories" hidden>
+        <button data-filter="all">All</button>
+        <button data-filter="portfolio">Portfolio</button>
+        <button data-filter="webapp">Web App</button>
+        <!-- Add more categories as needed -->
+      </div>
+      <div class="projects-grid">
+        <div class="project-card fade-in" data-category="portfolio" tabindex="0">
+          <img src="https://via.placeholder.com/300x180.png?text=Portfolio+Website"
+            class="project-img"
+            alt="Screenshot of Portfolio Website project"
+            aria-label="Portfolio Website project image" />
+          <div class="project-content">
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-description">
+              A modern, responsive portfolio website to showcase my skills, projects, and contact information.
+            </p>
+            <a href="#" class="project-link" aria-label="View Portfolio Website project">View Project</a>
+          </div>
+        </div>
+        <div class="project-card fade-in" data-category="webapp" tabindex="0">
+          <img src="https://via.placeholder.com/300x180.png?text=Weather+App"
+            class="project-img"
+            alt="Screenshot of Weather App project"
+            aria-label="Weather App project image" />
+          <div class="project-content">
+            <h3 class="project-title">Weather App</h3>
+            <p class="project-description">
+              A real-time weather application using modern APIs and responsive design.
+            </p>
+            <a href="#" class="project-link" aria-label="View Weather App project">View Project</a>
+          </div>
+        </div>
+        <div class="project-card fade-in" data-category="webapp" tabindex="0">
+          <img src="https://via.placeholder.com/300x180.png?text=Task+Manager"
+            class="project-img"
+            alt="Screenshot of Task Manager project"
+            aria-label="Task Manager project image" />
+          <div class="project-content">
+            <h3 class="project-title">Task Manager</h3>
+            <p class="project-description">
+              Organize your daily tasks efficiently with this intuitive task manager web app.
+            </p>
+            <a href="#" class="project-link" aria-label="View Task Manager project">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ...existing code above... -->
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-grid" role="list">
+        <!-- Email -->
+        <div class="contact-card" role="listitem" data-animate="fadeSlideUp" data-delay="0" tabindex="0">
+          <a href="mailto:your.email@example.com" class="contact-link" role="link" aria-label="Email Dhruv Vaishnav" title="your.email@example.com">
+            <img src="assets/icons/email.svg" alt="Email icon" class="contact-icon email" />
+            <span class="contact-title">Email</span>
+          </a>
+        </div>
+        <!-- GitHub -->
+        <div class="contact-card" role="listitem" data-animate="fadeSlideUp" data-delay="100" tabindex="0">
+          <a href="https://github.com/yourusername" class="contact-link" role="link" aria-label="GitHub Profile" target="_blank" rel="noopener" title="github.com/yourusername">
+            <img src="assets/icons/github.svg" alt="GitHub icon" class="contact-icon github" />
+            <span class="contact-title">GitHub</span>
+          </a>
+        </div>
+        <!-- LinkedIn -->
+        <div class="contact-card" role="listitem" data-animate="fadeSlideUp" data-delay="200" tabindex="0">
+          <a href="https://linkedin.com/in/yourusername" class="contact-link" role="link" aria-label="LinkedIn Profile" target="_blank" rel="noopener" title="linkedin.com/in/yourusername">
+            <img src="assets/icons/linkedin.svg" alt="LinkedIn icon" class="contact-icon linkedin" />
+            <span class="contact-title">LinkedIn</span>
+          </a>
+        </div>
+        <!-- Instagram -->
+        <div class="contact-card" role="listitem" data-animate="fadeSlideUp" data-delay="300" tabindex="0">
+          <a href="https://instagram.com/yourusername" class="contact-link" role="link" aria-label="Instagram Profile" target="_blank" rel="noopener" title="@yourusername">
+            <img src="assets/icons/instagram.svg" alt="Instagram icon" class="contact-icon instagram" />
+            <span class="contact-title">Instagram</span>
+          </a>
+        </div>
+        <!-- Pinterest -->
+        <div class="contact-card" role="listitem" data-animate="fadeSlideUp" data-delay="400" tabindex="0">
+          <a href="https://pinterest.com/yourusername" class="contact-link" role="link" aria-label="Pinterest Profile" target="_blank" rel="noopener" title="pinterest.com/yourusername">
+            <img src="assets/icons/pinterest.svg" alt="Pinterest icon" class="contact-icon pinterest" />
+            <span class="contact-title">Pinterest</span>
+          </a>
+        </div>
+        <!-- Discord -->
+        <div class="contact-card" role="listitem" data-animate="fadeSlideUp" data-delay="500" tabindex="0">
+          <a href="https://discord.com/users/yourdiscordid" class="contact-link" role="link" aria-label="Discord Profile" target="_blank" rel="noopener" title="yourdiscord#1234">
+            <img src="assets/icons/discord.svg" alt="Discord icon" class="contact-icon discord" />
+            <span class="contact-title">Discord</span>
+          </a>
+        </div>
+        <!-- Facebook -->
+        <div class="contact-card" role="listitem" data-animate="fadeSlideUp" data-delay="600" tabindex="0">
+          <a href="https://facebook.com/yourusername" class="contact-link" role="link" aria-label="Facebook Profile" target="_blank" rel="noopener" title="facebook.com/yourusername">
+            <img src="assets/icons/facebook.svg" alt="Facebook icon" class="contact-icon facebook" />
+            <span class="contact-title">Facebook</span>
+          </a>
+        </div>
+        <!-- X (Twitter) -->
+        <div class="contact-card" role="listitem" data-animate="fadeSlideUp" data-delay="700" tabindex="0">
+          <a href="https://x.com/yourusername" class="contact-link" role="link" aria-label="X (Twitter) Profile" target="_blank" rel="noopener" title="@yourusername">
+            <img src="assets/icons/x.svg" alt="X (Twitter) icon" class="contact-icon x" />
+            <span class="contact-title">X</span>
+          </a>
+        </div>
+        <!-- Cloud Drive -->
+        <div class="contact-card" role="listitem" data-animate="fadeSlideUp" data-delay="800" tabindex="0">
+          <a href="https://drive.google.com/yourdrive" class="contact-link" role="link" aria-label="Google Drive" target="_blank" rel="noopener" title="Google Drive">
+            <img src="assets/icons/drive.svg" alt="Google Drive icon" class="contact-icon drive" />
+            <span class="contact-title">Drive</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="contact-animate.js">
+  // Intersection Observer for contact cards animation
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.contact-card');
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: show all cards
+    cards.forEach(card => card.classList.add('animate-in'));
+    return;
+  }
+
+  let throttleTimeout = null;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = parseInt(entry.target.getAttribute('data-delay') || '0', 10);
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+        }, delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  // Throttle for performance
+  function throttleObserve() {
+    if (throttleTimeout) return;
+    throttleTimeout = setTimeout(() => {
+      cards.forEach(card => observer.observe(card));
+      throttleTimeout = null;
+    }, 100);
+  }
+
+  throttleObserve();
+  window.addEventListener('scroll', throttleObserve, { passive: true });
+  window.addEventListener('resize', throttleObserve);
+});</script>
+
+</body>
+</html>
