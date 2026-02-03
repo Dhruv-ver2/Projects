@@ -25,4 +25,4 @@ async def ping(ctx):
     await ctx.send(f"🏓 Online. {round(bot.latency * 1000)}ms")
 
 # DO NOT share this token with anyone!
-bot.run('MTM5OTIzMDM2NjAzOTkzNzEwNA.GGgNCx.MBxMlrwJ9tohvhzsm_6U5UOLy-7F18ucTJLd68')
+bot.run('')
