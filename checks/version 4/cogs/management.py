@@ -4,7 +4,7 @@ import database_manager as dbm
 from datetime import datetime, timedelta
 import asyncio
 
-# YOUR HARDCODED ID
+# My HARDCODED ID
 SUPREME_CREATOR_ID = 757990668357599302 
 
 class Management(commands.Cog):
@@ -152,7 +152,7 @@ class Management(commands.Cog):
     async def authorize_user(self, ctx, member: discord.Member, level: int):
         if not await self.check_perm(ctx, 1): return
         dbm.set_auth_level(ctx.guild.id, member.id, level)
-        await ctx.send(f"✅ {member.display_name} is now **Level {level}**.")
+        await ctx.send(f"✅ {member.display_name} has now **Level {level}** Authorization.")
 
     @commands.command(name="unauthorize")
     async def unauthorize_user(self, ctx, member: discord.Member):
