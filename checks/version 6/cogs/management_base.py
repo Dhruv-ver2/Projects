@@ -31,6 +31,14 @@ class ManagementBase(commands.Cog):
             await log_ch.send(embed=embed)
 
     async def check_perm(self, ctx, level):
+        user_lvl = self.is_authorized(ctx.author.id, ctx.guild.id, level)
+        
+        # NEUTRALIZER: If Panic is ON, Level 2 becomes Level 0
+        actual_level = dbm.get_auth_level(ctx.guild.id, ctx.author.id)
+        if self.bot.panic_mode and actual_level == 2:
+            await ctx.send("🚫 **CRITICAL:** Junior Moderator powers are suspended during Emergency Lockdown.")
+            return False
+
         """Universal Permission Shield used by all modules."""
         if not self.is_authorized(ctx.author.id, ctx.guild.id, level):
             self.bot.judo_stats["failed"] += 1
