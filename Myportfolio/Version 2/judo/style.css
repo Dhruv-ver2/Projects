@@ -1,0 +1,138 @@
+:root {
+    --color-bg: #0a0a0a;
+    --color-text: #ffffff;
+    /* Updated to Neon Pink */
+    --color-judo-accent: #ff007f; 
+    --color-judo-glow: rgba(255, 0, 127, 0.5);
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Lora', serif;
+}
+
+body.judo-page {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    margin: 0;
+    line-height: 1.6;
+}
+
+#judo-hero {
+    min-height: 100vh;
+    padding: 10vh 5vw;
+    /* Kept your blended dark/purple background as requested */
+    background: radial-gradient(circle at top right, rgba(188, 71, 255, 0.1), transparent);
+    display: flex;
+    justify-content: center;
+}
+
+.judo-container {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+}
+
+.judo-header h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin: 10px 0;
+    color: #fff; /* JUDO stays white */
+}
+
+.judo-header h1 span {
+    color: var(--color-judo-accent); /* A Discord Bot becomes Neon Pink */
+    text-shadow: 0 0 15px var(--color-judo-glow);
+}
+
+.judo-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid var(--color-judo-accent);
+    color: var(--color-judo-accent);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.judo-subtitle {
+    font-size: 1.2rem;
+    color: #888;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.judo-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.judo-btn {
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.judo-btn.primary {
+    background-color: var(--color-judo-accent);
+    color: #fff;
+    box-shadow: 0 0 20px var(--color-judo-glow);
+}
+
+.judo-btn.secondary {
+    border: 1px solid #333;
+    color: #fff;
+}
+
+.judo-btn:hover {
+    transform: translateY(-3px);
+    background-color: #fff;
+    color: #000;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin: 80px 0;
+}
+
+.feature-box {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    /* Set border to transparent by default */
+    border: 1px solid transparent; 
+    border-radius: 20px;
+    text-align: left;
+    transition: all 0.4s ease;
+}
+
+/* Hover-only Neon Pink Border */
+.feature-box:hover {
+    border-color: var(--color-judo-accent);
+    background: rgba(255, 0, 127, 0.02);
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.1);
+}
+
+.feature-box h3 {
+    color: var(--color-judo-accent);
+    margin-bottom: 15px;
+}
+
+.feature-box p {
+    font-size: 0.95rem;
+    color: #aaa;
+}
+
+.back-home-btn {
+    color: #888;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.back-home-btn:hover {
+    color: var(--color-judo-accent);
+}

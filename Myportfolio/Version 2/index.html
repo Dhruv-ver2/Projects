@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhruv Vaishnav | Portfolio</title>
+    
+    <meta name="description" content="The portfolio of Dhruv Vaishnav, a passionate software engineering student specializing in creative and dynamic web solutions.">
+    <meta name="keywords" content="Dhruv Vaishnav, Portfolio, Software Engineer, Web Developer, Frontend Developer">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="intro-active">
+
+    <div id="intro-overlay">
+        <div id="formula-container"></div>
+        <h1 id="intro-text" aria-live="assertive"></h1>
+        <noscript>
+            <h1 style="color: white; font-family: 'Lora', serif;">Dhruv Vaishnav</h1>
+        </noscript>
+    </div>
+
+    <div class="theme-selector-container">
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Open theme selector" aria-expanded="false">
+            <svg class="icon-theme" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 18C13.0609 18 14.0783 17.5786 14.8284 16.8284C15.5786 16.0783 16 15.0609 16 14C16 11.7909 14.2091 10 12 10V18Z"></path>
+            </svg>
+        </button>
+        <div class="theme-options" id="theme-options-menu" role="menu">
+            <button class="theme-option-btn" role="menuitem" data-theme="theme-lucid-blue">
+                <span class="theme-swatch" style="background: linear-gradient(to bottom, #ffffff, #bbdefb);"></span>
+                Lucid Blue
+            </button>
+            <button class="theme-option-btn" role="menuitem" data-theme="theme-metallic-sky">
+                <span class="theme-swatch" style="background-color: #111827;"></span>
+                Metallic Sky
+            </button>
+        </div>
+    </div>
+
+    <section class="hero" id="home">
+        <canvas id="particle-canvas"></canvas>
+        <header class="hero-content">
+            <h1 class="hero-headline">
+                <span id="typewriter-text"></span><span class="typewriter-cursor"></span>
+            </h1>
+            <p class="hero-subheadline" id="subheadline">
+                A Software Engineering student on a mission to write tech history.
+            </p>
+        </header>
+        <div class="scroll-indicator">
+            <a href="#about-me" aria-label="Scroll down to about me section">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </a>
+        </div>
+    </section>
+    
+    <section class="about-me" id="about-me">
+        <canvas id="background-canvas"></canvas>
+        <div class="about-me-container">
+            <h2 class="section-title">About Me</h2>
+            <p class="bio-text">
+                Hi, I'm Dhruv Vaishnav, a passionate software engineering student with a love for crafting elegant solutions to complex problems. My journey in technology is driven by a relentless curiosity and a desire to build applications that are not only functional but also intuitive and impactful.
+            </p>
+
+            <div class="project-cards">
+                <div id="crypto-card" class="project-card has-details" style="background-image: url('images/matrixl.jpg');">
+                    <div class="project-content">
+                        <h3>Cryptography System</h3>
+                        <p>A web-based tool for text encryption and decryption using various classical and modern cryptographic algorithms.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project-status.html" class="project-btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="portfolio-card" class="project-card has-details" style="background-image: url('images/planetl.jpg');">
+                    <div class="project-content">
+                        <h3>Personal Portfolio</h3>
+                        <p>The dynamic and interactive website you are currently exploring, built from scratch with a focus on design and performance.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Dhruv-ver2/Projects" class="project-btn" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="judo-card" class="project-card has-details" style="background-image: url('images/ai1l.jpg');">
+                    <div class="project-content">
+                        <h3>Judo: A Discord Bot</h3>
+                        <p>A unique utility bot for server moderation, management, entertainment, and advanced security protocols.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="judo/index.html" class="project-btn" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="top-secret-card" class="project-card project-card--placeholder" style="background-image: url('images/tabbystarl.jpg');">
+                    <div class="project-content">
+                        <h3>Top Secret</h3>
+                        <p>Coming soon...</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="more-info-toggle" id="more-info-btn" aria-expanded="false" aria-controls="more-info-content">
+                More About Me
+            </button>
+
+            <div class="more-info-content" id="more-info-content" role="region" aria-hidden="true">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">2021</span>
+                        <h4 class="timeline-title">Began My Tech Journey</h4>
+                        <p class="timeline-description">Started my degree in Software Engineering, diving deep into the fundamentals of computer science and programming.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2022</span>
+                        <h4 class="timeline-title">First Major Project</h4>
+                        <p class="timeline-description">Developed a full-stack web application, solidifying my skills in both front-end and back-end technologies.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2023</span>
+                        <h4 class="timeline-title">Exploring New Horizons</h4>
+                        <p class="timeline-description">Began exploring machine learning and UI/UX design principles to build more intelligent and user-friendly applications.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="Dhruv_Vaishnav_Resume.pdf" class="download-resume-btn" id="view-resume-btn" target="_blank" rel="noopener noreferrer">View Resume</a>
+                
+                <a href="Dhruv_Vaishnav_Resume.pdf" download="Dhruv_Vaishnav_Resume.pdf" class="download-resume-btn" id="resume-btn">Download Resume</a>
+                
+                <a href="contact/contact.html" class="download-resume-btn" target="_blank" rel="noopener noreferrer">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

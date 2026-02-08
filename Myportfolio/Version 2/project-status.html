@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Status | Dhruv Vaishnav</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #e8eaf6;
+            --accent-yellow: #FFD700; /* Matching your new yellow */
+            --accent-blue: #81d4fa;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .status-container {
+            max-width: 600px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .status-tag {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            border-left: 3px solid var(--accent-blue);
+            padding-left: 20px;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #888;
+        }
+
+        .highlight {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #000;
+            background-color: var(--text-light);
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+            background-color: var(--accent-yellow);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="status-container">
+        <span class="status-tag">! Currently Unavailable</span>
+        <h1>Cryptography System</h1>
+        
+        <div class="info-box">
+            <p>This project is currently in the <span class="highlight">Architectural Design Phase</span>.</p>
+            <p>Development is scheduled to commence in <span class="highlight">Mid-July 2026</span>.</p>
+        </div>
+
+        <p>The system will integrate advanced Python-based encryption modules and classic cipher algorithms with a modern web interface. Stay tuned for the public repository.</p>
+        
+        <a href="index.html" class="back-btn">Back to Portfolio</a>
+    </div>
+
+</body>
+</html>
