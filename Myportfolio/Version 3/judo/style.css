@@ -1,0 +1,269 @@
+/* ==========================================================================
+ THEME VARIABLES (Synchronized with Main Portfolio)
+==========================================================================
+*/
+:root {
+    /* -- LUCID BLUE (LIGHT) DEFAULT -- */
+    --color-tertiary: #ffffff;
+    --color-text-main: #212121;
+    --color-text-accent: #0d47a1; /* Deep Blue Accent */
+    --color-card-bg: rgba(255, 255, 255, 0.5);
+    --color-card-border: rgba(0, 0, 0, 0.1);
+    --bg-gradient: linear-gradient(to bottom, #ffffff 0%, #bbdefb 100%);
+    --accent-glow: rgba(25, 118, 210, 0.4);
+    
+    /* Dynamic Judo Branding - Now linked to theme */
+    --judo-accent: var(--color-text-accent);
+    --judo-glow: var(--accent-glow);
+    
+    --font-heading: 'Lora', serif;
+    --font-main: 'Inter', sans-serif;
+}
+
+body.theme-metallic-sky {
+    /* -- METALLIC SKY (DARK) OVERRIDES -- */
+    --color-tertiary: #000000;
+    --color-text-main: #ffffff;
+    --color-text-accent: #81d4fa; /* Sky Blue Accent */
+    --color-card-bg: rgba(26, 35, 126, 0.2);
+    --color-card-border: rgba(92, 107, 192, 0.3);
+    --bg-gradient: linear-gradient(45deg, #111827, #000000);
+    --accent-glow: rgba(129, 212, 250, 0.6);
+}
+
+/* ==========================================================================
+ BASE LAYOUT
+==========================================================================
+*/
+body {
+    background: var(--bg-gradient);
+    color: var(--color-text-main);
+    font-family: var(--font-main);
+    margin: 0;
+    line-height: 1.6;
+    transition: background 0.4s ease, color 0.4s ease;
+    min-height: 100vh;
+}
+
+#judo-hero {
+    min-height: 100vh;
+    padding: 10vh 5vw;
+    /* Hero glow now matches the theme accent */
+    background: radial-gradient(circle at top right, var(--judo-glow), transparent);
+    display: flex;
+    justify-content: center;
+}
+
+.judo-container {
+    max-width: 1200px; /* Width increased to fit 4 cards in a row */
+    width: 100%;
+    text-align: center;
+}
+
+/* ==========================================================================
+ HEADER & TYPOGRAPHY
+==========================================================================
+*/
+.judo-header h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin: 10px 0;
+    color: var(--color-text-main);
+}
+
+.judo-header h1 span {
+    color: var(--judo-accent);
+    text-shadow: 0 0 15px var(--judo-glow);
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.judo-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid var(--judo-accent);
+    color: var(--judo-accent);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: all 0.4s ease;
+}
+
+.judo-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-main);
+    opacity: 0.8;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+/* ==========================================================================
+ ACTION BUTTONS
+==========================================================================
+*/
+.judo-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.judo-btn {
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.judo-btn.primary {
+    background-color: var(--judo-accent);
+    color: var(--color-tertiary);
+    box-shadow: 0 0 20px var(--judo-glow);
+    border: none;
+}
+
+.judo-btn.secondary {
+    border: 1px solid var(--color-text-main);
+    color: var(--color-text-main);
+}
+
+.judo-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--color-text-main);
+    color: var(--color-tertiary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+ FEATURE GRID (Fixed Stretching & Horizontal Alignment)
+==========================================================================
+*/
+.feature-grid {
+    display: grid;
+    /* auto-fit with 1fr ensures cards sit in one row until screen gets too narrow */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin: 80px auto;
+    max-width: 100%; 
+    justify-content: center;
+}
+
+.feature-box {
+    padding: 30px;
+    background: var(--color-card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-card-border); 
+    border-radius: 20px;
+    /* Horizontal center alignment for text and sentence lines */
+    text-align: center; 
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items inside the flex container */
+}
+
+.feature-box:hover {
+    border-color: var(--judo-accent);
+    background: var(--color-card-bg);
+    box-shadow: 0 0 25px var(--judo-glow);
+    transform: scale(1.02);
+}
+
+.feature-box h3 {
+    color: var(--judo-accent);
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.feature-box p {
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* ==========================================================================
+ THEME SELECTOR UI
+==========================================================================
+*/
+.theme-selector-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--color-text-accent);
+}
+
+.theme-options {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background: var(--color-card-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--color-card-border);
+    border-radius: 12px;
+    padding: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.theme-options.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.theme-option-btn {
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: var(--color-text-main);
+    text-align: left;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.theme-option-btn:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+body.theme-metallic-sky .theme-option-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.back-home-btn {
+    color: var(--color-text-main);
+    opacity: 0.6;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.back-home-btn:hover {
+    opacity: 1;
+    color: var(--judo-accent);
+}
