@@ -16,8 +16,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ensures the background canvas stays behind the content */
+        #judo-background-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body class="judo-page">
+
+    <canvas id="judo-background-canvas"></canvas>
 
     <div class="theme-selector-container">
         <button class="theme-toggle" id="theme-toggle-btn" aria-label="Open theme selector" aria-expanded="false">
@@ -87,8 +101,87 @@
             const themeOptionsMenu = document.getElementById('theme-options-menu');
             const themeOptionButtons = document.querySelectorAll('.theme-option-btn');
 
+            // --- Constellation Canvas Background Logic ---
+            const canvas = document.getElementById('judo-background-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let animationFrameId;
+
+            const getThemeColor = (variable) => getComputedStyle(document.body).getPropertyValue(variable).trim();
+
+            class Particle {
+                constructor(x, y, size, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.size = size;
+                    this.color = color;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                    this.draw();
+                }
+            }
+
+            function initCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                particles = [];
+                // Particles will use the theme's accent color
+                const particleColor = getThemeColor('--judo-accent');
+                const numberOfParticles = (canvas.width * canvas.height) / 15000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    const size = Math.random() * 2 + 1;
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    particles.push(new Particle(x, y, size, particleColor));
+                }
+            }
+
+            function connectParticles() {
+                const lineColor = getThemeColor('--judo-glow');
+                for (let a = 0; a < particles.length; a++) {
+                    for (let b = a + 1; b < particles.length; b++) {
+                        const dx = particles[a].x - particles[b].x;
+                        const dy = particles[a].y - particles[b].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < 150) {
+                            ctx.strokeStyle = lineColor;
+                            ctx.lineWidth = 1 - (distance / 150);
+                            ctx.beginPath();
+                            ctx.moveTo(particles[a].x, particles[a].y);
+                            ctx.lineTo(particles[b].x, particles[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                connectParticles();
+                particles.forEach(p => p.update());
+                animationFrameId = requestAnimationFrame(animate);
+            }
+
+            function startAnimation() {
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
+                initCanvas();
+                animate();
+            }
+
+            // --- Theme Logic ---
             function applyTheme(themeName) {
-                // Apply to both body and documentElement for consistency
                 document.body.classList.remove('theme-lucid-blue', 'theme-metallic-sky');
                 document.documentElement.classList.remove('theme-lucid-blue', 'theme-metallic-sky');
                 
@@ -96,9 +189,11 @@
                 document.documentElement.classList.add(themeName);
                 
                 localStorage.setItem('theme', themeName);
+
+                // Restart animation to update particle colors based on new theme
+                setTimeout(startAnimation, 100);
             }
 
-            // Toggle Menu Visibility
             themeToggleButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const isVisible = themeOptionsMenu.classList.contains('visible');
@@ -106,7 +201,6 @@
                 themeToggleButton.setAttribute('aria-expanded', !isVisible);
             });
 
-            // Handle Theme Selection
             themeOptionButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const selectedTheme = button.dataset.theme;
@@ -116,15 +210,17 @@
                 });
             });
 
-            // Close menu if user clicks anywhere else
             window.addEventListener('click', () => {
                 themeOptionsMenu.classList.remove('visible');
                 themeToggleButton.setAttribute('aria-expanded', 'false');
             });
 
-            // Initialize correct theme on load
+            window.addEventListener('resize', startAnimation);
+
+            // Initialize correct theme and animation on load
             const savedTheme = localStorage.getItem('theme') || 'theme-lucid-blue';
             applyTheme(savedTheme);
+            startAnimation();
         });
     </script>
 </body>

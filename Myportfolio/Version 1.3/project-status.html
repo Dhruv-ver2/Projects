@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Status | Dhruv Vaishnav</title>
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'theme-lucid-blue';
+            document.documentElement.classList.add(savedTheme);
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Shared Theme Variables */
+        :root {
+            --color-tertiary: #ffffff;
+            --color-text-main: #212121;
+            --color-text-accent: #0d47a1;
+            --color-card-bg: rgba(255, 255, 255, 0.5);
+            --color-card-border: rgba(0, 0, 0, 0.1);
+            --accent-yellow: #FFD700;
+            --accent-blue: #1976d2;
+            --bg-gradient: linear-gradient(to bottom, #ffffff 0%, #bbdefb 100%);
+        }
+
+        .theme-metallic-sky, 
+        body.theme-metallic-sky {
+            --color-tertiary: #000000;
+            --color-text-main: #e8eaf6;
+            --color-text-accent: #81d4fa;
+            --color-card-bg: rgba(26, 35, 126, 0.2);
+            --color-card-border: rgba(255, 255, 255, 0.05);
+            --accent-yellow: #FFD700;
+            --accent-blue: #81d4fa;
+            --bg-gradient: linear-gradient(45deg, #111827, #000000);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg-gradient);
+            color: var(--color-text-main);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        .status-container {
+            max-width: 600px;
+            padding: 50px;
+            border: 1px solid var(--color-card-border);
+            border-radius: 30px;
+            background: var(--color-card-bg);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--color-text-main);
+        }
+
+        .status-tag {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .info-box {
+            border-left: 3px solid var(--accent-blue);
+            padding-left: 20px;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: var(--color-text-main);
+            opacity: 0.8;
+        }
+
+        .highlight {
+            color: var(--color-text-accent);
+            font-weight: 600;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: var(--color-tertiary);
+            background-color: var(--color-text-main);
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background-color: var(--accent-blue);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="judo-page">
+
+    <div class="status-container">
+        <span class="status-tag">! Currently Unavailable</span>
+        <h1>Cryptography System</h1>
+        
+        <div class="info-box">
+            <p>This project is currently in the <span class="highlight">Architectural Design Phase</span>.</p>
+            <p>Development is scheduled to commence in <span class="highlight">Mid-July 2026</span>.</p>
+        </div>
+
+        <p>The system will integrate advanced Python-based encryption modules and classic cipher algorithms with a modern web interface. Stay tuned for the public repository.</p>
+        
+        <a href="index.html" class="back-btn">Back to Portfolio</a>
+    </div>
+
+</body>
+</html>
