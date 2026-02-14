@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="contact-style.css">
+    <link rel="stylesheet" href="{% static 'css/contact-style.css' %}">
 </head>
 <body>
 
@@ -43,7 +44,8 @@
         <main class="section-container">
             <div class="contact-form-container glass-panel">
                 <h2>Contact Nexus</h2>
-                <form id="contact-form" novalidate>
+                <form id="contact-form" method="POST" action="{% url 'send_discord' %}">
+                    {% csrf_token %}
                     <div class="form-group">
                         <input type="text" id="name" name="name" class="form-input" placeholder="Name" required aria-label="Full Name">
                     </div>
@@ -56,13 +58,13 @@
                     <div class="form-group">
                         <textarea id="message" name="message" class="form-input" placeholder="Your message..." required aria-label="Message"></textarea>
                     </div>
-                    <button type="button" class="submit-btn">Transmit</button>
+                    <button type="submit" class="submit-btn">Transmit</button>
                     <p id="form-success-message">Response Submitted Successfully</p>
                 </form>
             </div>
         </main>
     </div>
 
-    <script src="contact-script.js"></script>
+    <script src="{% static 'js/contact-script.js' %}"></script>
 </body>
 </html>
