@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-visitor-tracker"
+version = "0.1.0"
+description = "Hybrid visitor tracking & threat detection for Django"
+authors = [{ name = "Dhruv" }]
+dependencies = [
+    "django>=4.2",
+    "user-agents>=2.2.0"
+]
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["analytics*"]
+
+[tool.setuptools.package-data]
+analytics = ["static/js/*.js"]
