@@ -1,17 +1,17 @@
 from django.http import HttpResponseServerError
+from django.utils.deprecation import MiddlewareMixin
+from django.shortcuts import render
 
-class GlobalExceptionLoggerMiddleware:
+class GlobalExceptionLoggerMiddleware(MiddlewareMixin):
 
-    def __init__(self, get_response):
-        self.get_response = get_response
+    def process_exception(self, request, exception):
+        print("Exception occurred:", exception)
 
-    def __call__(self, request):
-        try:
-            response = self.get_response(request)
-
-        except Exception as e:
-            print("Exception occurred:", e)
-
-            response = HttpResponseServerError("Something went wrong on the server.")
-        
-        return response
+        return render(
+            request,
+            "errors/500.html",
+            {
+                "request_id": request.request_id
+            },
+            status=500
+        )

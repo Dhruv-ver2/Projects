@@ -41,8 +41,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'middleware_lab.ip_blacklist.IPBlacklistMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'middleware_lab.ip_blacklist.IPBlacklistMiddleware',
+    'middleware_lab.request_id.RequestIDMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -50,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'middleware_lab.middleware.PerformanceTimerMiddleware',
-    'middleware_lab.request_id.RequestIDMiddleware',
     'middleware_lab.user_agent.UserAgentMiddleware',
     'middleware_lab.exception_logger.GlobalExceptionLoggerMiddleware',
 ]
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/ 'middleware_lab' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
